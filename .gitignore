@@ -1,0 +1,7 @@
+__pycache__
+venv
+credentials.py
+pyvenv.cfg
+include/
+lib*
+bin/
