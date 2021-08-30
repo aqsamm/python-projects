@@ -31,7 +31,7 @@ class TwitterBot:
 
     def check_time(self):
         format = '%H:%M %p'
-        datetime.today().strftime(format))
+        datetime.today().strftime(format)
 
     def post_tweet(self, quote):
         api = self.authenticate()
@@ -51,4 +51,4 @@ class TwitterBot:
 
 
 tw=TwitterBot()
-tw.post_tweet()
+tw.post_tweet("tweepyyttt")
