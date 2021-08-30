@@ -44,7 +44,7 @@ def get_quotes(page_number=0):
     for i in range(len(quotes)):
         combined_list.append(quotes[i]+'-'+authors[i])
 
-    print (combined_list)
+    #print (combined_list)
     return combined_list
 
 
