@@ -8,7 +8,6 @@ import webscrape
 class TwitterBot:
 
     def __init__(self):
-
         self.api_key = credentials.api_key
         self.api_secret_key = credentials.api_secret_key
         self.access_token = credentials.access_token
@@ -16,7 +15,6 @@ class TwitterBot:
 
     def authenticate(self):
         """ Authenticate to Twitter """
-
         auth = tweepy.OAuthHandler(self.api_key, self.api_secret_key)
         auth.set_access_token(self.access_token, self.access_token_secret)
         api = tweepy.API(auth)
@@ -41,14 +39,21 @@ class TwitterBot:
         print(webscrape.combined_list)
         api.update_status(quote)
 
+
     def main():
         t = self.check_time()
-        if t == '08:00 AM' or t == '08:01 AM':
-            print(t,flush=True)
-            self.post_tweet(quote)
-            time.sleep(61)
-
+        quote = random.choice(webscrape.combined_list)
+        while True:
+            if t == '08:00 AM' or t == '08:01 AM':
+                print(t,flush=True)
+                self.post_tweet(quote)
+                time.sleep(61)
+            else:
+                t = check_time()
+                print(t,flush=True)
+                print('It\'s not time yet',flush=True)
+                time.sleep(50)
 
 
 tw=TwitterBot()
-tw.post_tweet("tweepyyttt")
+#tw.post_tweet("tweepyyttt")

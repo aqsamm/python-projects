@@ -3,6 +3,8 @@
 from bs4 import BeautifulSoup
 import requests
 import urllib.request
+import random
+
 
 #Create lists to store the scraped data
 authors = []
@@ -44,7 +46,7 @@ def get_quotes(page_number=0):
     for i in range(len(quotes)):
         combined_list.append(quotes[i]+'-'+authors[i])
 
-    #print (combined_list)
+    print (random.choice(combined_list))
     return combined_list
 
 
