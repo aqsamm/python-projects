@@ -29,31 +29,14 @@ class TwitterBot:
 
     def check_time(self):
         format = '%H:%M %p'
-        datetime.today().strftime(format)
+        t = datetime.today().strftime(format)
+        return t
 
     def post_tweet(self, quote):
         api = self.authenticate()
         user = api.get_user('Aqsa_M1')
         print(user.followers_count)
         print(user.screen_name)
-        print(webscrape.combined_list)
+        #print(webscrape.combined_list)
         api.update_status(quote)
 
-
-    def main():
-        t = self.check_time()
-        quote = random.choice(webscrape.combined_list)
-        while True:
-            if t == '08:00 AM' or t == '08:01 AM':
-                print(t,flush=True)
-                self.post_tweet(quote)
-                time.sleep(61)
-            else:
-                t = check_time()
-                print(t,flush=True)
-                print('It\'s not time yet',flush=True)
-                time.sleep(50)
-
-
-tw=TwitterBot()
-#tw.post_tweet("tweepyyttt")
