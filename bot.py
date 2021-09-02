@@ -27,11 +27,6 @@ class TwitterBot:
         tweet_info = [tweet.text for tweet in tweets]
         return tweet_info
 
-    def check_time(self):
-        format = '%H:%M %p'
-        t = datetime.today().strftime(format)
-        return t
-
     def post_tweet(self, quote):
         api = self.authenticate()
         user = api.get_user('Aqsa_M1')

@@ -3,15 +3,16 @@ import random
 
 from bot import TwitterBot
 import webscrape
+import checktime as ct
 
 
 def main():
     while True:
-        t = tw.check_time()
+        t = ct.check_time()
         #print (t)
         quote = random.choice(webscrape.combined_list)
         if t == '22:08 PM' or t == '22:09 PM':
-            print(t,flush=True)
+            print(t, flush=True)
             try:
                 tw.post_tweet(quote)
                 time.sleep(61)
@@ -19,9 +20,9 @@ def main():
                 tw.post_tweet(quote)
                 time.sleep(61)
         else:
-            t = tw.check_time()
-            print(t,flush=True)
-            print('It\'s not time yet',flush=True)
+            t = ct.check_time()
+            print(t, flush=True)
+            print('It\'s not time yet', flush=True)
             time.sleep(50)
 
 
