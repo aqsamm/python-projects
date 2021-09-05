@@ -14,7 +14,6 @@ combined_list = []
 
 def get_quotes(page_number=0):
     """ Function to scrape the site """
-
     page_num = str(page_number)
 
     #append the page number to complete the URL
@@ -22,7 +21,6 @@ def get_quotes(page_number=0):
 
     try:
         webpage = requests.get(URL)
-
     except:
         print ("The URL was not found")
 

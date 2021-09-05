@@ -1,5 +1,6 @@
 import time
 import random
+import tweepy
 
 from bot import TwitterBot
 import webscrape
@@ -9,16 +10,17 @@ import checktime as ct
 def main():
     while True:
         t = ct.check_time()
-        #print (t)
-        quote = random.choice(webscrape.combined_list)
-        if t == '22:08 PM' or t == '22:09 PM':
+        #print(t)
+        quote = random.choice(webscrape.get_quotes())
+        if t == '22:26 PM' or t == '22:27 PM':
             print(t, flush=True)
             try:
                 tw.post_tweet(quote)
                 time.sleep(61)
-            except twitter.TweepError as error:
-                tw.post_tweet(quote)
-                time.sleep(61)
+            except tweepy.TweepError as error:
+                print(error)
+                time.sleep(60)
+
         else:
             t = ct.check_time()
             print(t, flush=True)
@@ -27,5 +29,5 @@ def main():
 
 
 if __name__ == "__main__":
-    tw=TwitterBot()
+    tw = TwitterBot()
     main()

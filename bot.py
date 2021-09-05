@@ -8,6 +8,7 @@ import webscrape
 class TwitterBot:
 
     def __init__(self):
+        """ Initialize the credentials """
         self.api_key = credentials.api_key
         self.api_secret_key = credentials.api_secret_key
         self.access_token = credentials.access_token
@@ -21,13 +22,14 @@ class TwitterBot:
         return api
 
     def search_hashtags(self,hashtags):
-        """ returns a cursor object """
+        """ Returns a cursor object """
         tweets = tweepy.Cursor(self.authenticate().search,
                 q=hashtags,result_type='recent').items(100)
         tweet_info = [tweet.text for tweet in tweets]
         return tweet_info
 
     def post_tweet(self, quote):
+        """ Posts tweet on Twitter """
         api = self.authenticate()
         user = api.get_user('Aqsa_M1')
         print(user.followers_count)
